@@ -45,6 +45,26 @@ public:
         node* newnode = new node(d);
         newnode->next = temp->next;
         temp->next = newnode;
+}
+        void deleteAtposition(int pos , node* &head){
+        node* temp = head;
+        if(pos ==1){
+            head = temp->next;
+            delete temp;
+            return;
+            
+        }
+        
+        int cnt = 1;
+        while(cnt<pos-1){
+            temp = temp->next;
+            cnt++;
+        }
+        
+        temp->next = temp->next->next;
+      
+       
+        
     }
     
     void print(node* head) {
@@ -81,6 +101,9 @@ int main() {
     node1->insertAtPosition(head, tail, 4, 4);
     node1->insertAtPosition(head, tail, 1, 0);
     node1->insertAtPosition(head, tail, 8, 7);
+
+    node1->deleteAtposition(1, head);
+    node1->deleteAtposition(7, head);
     
     node1->print(head);
 }
