@@ -82,6 +82,17 @@ void deletee(node* tail , int value){
         }
         
         prev->next = curr->next;
+        
+        //1 node
+        if(curr == prev){
+            tail = NULL;
+        }
+        
+        
+        //>=2
+        if(tail == curr){
+            tail = prev;
+        }
         curr->next = NULL;
         delete curr;
     }
