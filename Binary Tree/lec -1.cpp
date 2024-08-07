@@ -30,6 +30,59 @@ void levelOrderTraversal(node* root){
     cout << endl;
 }
 
+void buildFromLevelOrder(node*& root){
+    queue<node*> q;
+
+       cout << "Enter data for root" << endl;
+       int data ;
+       cin >> data;
+       root = new node(data);
+       
+       q.push(root);
+
+       while(!q.empty()) {
+           node* temp = q.front();
+           q.pop();
+
+           cout << "Enter left node for: " << temp->data << endl;
+           int leftData;
+           cin >> leftData;
+
+           if(leftData != -1) {
+               temp -> left = new node(leftData);
+               q.push(temp->left);
+           }
+
+           cout << "Enter right node for: " << temp->data << endl;
+           int rightData;
+           cin >> rightData;
+
+           if(rightData != -1) {
+               temp -> right = new node(rightData);
+               q.push(temp->right);
+           }
+       }
+    
+}
+
+void inorderHelper(TreeNode* root , vector<int>&ans){
+        if(root == NULL) return;
+
+        inorderHelper(root->left , ans);
+        ans.push_back(root->val);
+        inorderHelper(root->right , ans);
+
+}
+vector<int> inorderTraversal(TreeNode* root) {
+        //base case likhna hai
+    vector<int> ans;
+    inorderHelper(root, ans);
+    return ans;
+}
+
+//same aise he postorder and preorder ke liye hai 
+    
+
 class node {
     public:
         int data;
