@@ -15,7 +15,7 @@ int main() {
     cout<<endl;
     int n , m ;
     cin >> n >> m;
-    
+    //this is for matrix representation 
     int adj[101][101];
     
     for(int i = 0 ; i < m ; i++){
@@ -24,6 +24,23 @@ int main() {
         
         adj[u][v] = 1;
         adj[v][u] = 1;
+        
+    }
+
+    //for list representation
+
+    vector<int>adj[n+1];
+
+    for(int i =0 ; I < m ; i++){
+        int u , v;
+        in >> u >> v;
+
+        //if it is undirected graph
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+
+        //if its directed grpah
+        adj[u].push_back(v);
         
     }
     
