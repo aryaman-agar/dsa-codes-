@@ -7,7 +7,7 @@ using namespace std;
 class Solution {
   public:
     // Function to return a list containing the DFS traversal of the graph.
-    void dfs (vector<vector<int>>& adj , vector<int>& fs , vector<int> vis ,  int node ){
+    void dfs (vector<vector<int>>& adj , vector<int>& fs , vector<int>& vis ,  int node ){
         
         vis[node] = 1;
         fs.push_back(node);
